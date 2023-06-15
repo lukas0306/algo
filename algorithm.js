@@ -51,3 +51,16 @@ function solution(s, n) {
   }
   return answer;
 }
+
+//k번째 수
+
+function solution(array, commands) {
+  let answer = commands.map((el) => {
+    const result = array.slice(el[0] - 1, el[1]).sort((a, b) => {
+      return a - b;
+    });
+    return result[el[2] - 1];
+  });
+
+  return answer;
+}

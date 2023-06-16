@@ -64,3 +64,17 @@ function solution(array, commands) {
 
   return answer;
 }
+
+//두 개 뽑아서 더하기
+
+function solution(numbers) {
+  let answer = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    for (let l = i + 1; l < numbers.length; l++) {
+      const sum = numbers[i] + numbers[l];
+      if (answer.includes(sum) === true) answer.push(sum);
+    }
+  }
+  return answer.sort((a, b) => a - b);
+}

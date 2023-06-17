@@ -78,3 +78,17 @@ function solution(numbers) {
   }
   return answer.sort((a, b) => a - b);
 }
+
+//폰켓몬
+
+function solution(nums) {
+  const answer = new Set(nums).size;
+  //폰켓몬 최대 개수
+  const limit = nums.length / 2;
+  console.log(answer, limit);
+
+  if (limit >= answer) {
+    return answer;
+  }
+  return limit;
+}

@@ -92,3 +92,33 @@ function solution(nums) {
   }
   return limit;
 }
+
+//실패율
+
+function solution(N, stages) {
+  stages.sort((a, b) => a - b);
+
+  const answer = new Array(N).fill(1).map((el, i) => {
+    const stage = el + i;
+    const stageInfo = { stage: stage, users: 0, fail: 0 };
+
+    stages.forEach((user, i) => {
+      if (user === stage) {
+        stageInfo.users += 1;
+
+        if (stages[i + 1] !== stage) {
+          stageInfo.fail = stageInfo.users / stages.length;
+          stages.splice(0, stageInfo.users);
+        }
+      }
+    });
+    return stageInfo;
+  });
+  const result = answer
+    .sort((a, b) => {
+      return b.fail - a.fail;
+    })
+    .map((el) => el.stage);
+
+  return result;
+}

@@ -150,3 +150,5 @@ function solution(dartResult) {
   answer = cnt.reduce((acc, cur) => acc + cur, 0);
   return answer;
 }
+
+//
